@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 
 type HomeViewProps = {
   asciiArt: string;
@@ -21,7 +21,7 @@ export function HomeView({ asciiArt, intro, title }: HomeViewProps) {
     width: 0,
   });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const container = containerRef.current;
     const art = artRef.current;
 
@@ -77,11 +77,11 @@ export function HomeView({ asciiArt, intro, title }: HomeViewProps) {
   return (
     <section className="flex min-h-full flex-col items-center justify-center px-6 py-8 text-center max-[640px]:justify-start max-[640px]:px-3 max-[640px]:py-5 max-[480px]:px-[0.6rem]">
       <div ref={containerRef} className="flex w-full justify-center overflow-visible">
-        <div className="max-w-full" style={asciiWrapperStyle}>
+        <div className="relative max-w-full overflow-visible" style={asciiWrapperStyle}>
           <pre
             ref={artRef}
-            className="inline-block font-bold leading-[1.05] text-terminal-mauve text-[clamp(0.38rem,0.95vw,1rem)] max-[640px]:text-[0.32rem] max-[480px]:text-[0.24rem] max-[360px]:text-[0.19rem]"
-            style={{ transform: `scale(${asciiMetrics.scale})`, transformOrigin: "top center" }}
+            className="absolute left-0 top-0 inline-block whitespace-pre font-bold leading-[1.05] text-terminal-mauve text-[clamp(0.38rem,0.95vw,1rem)] max-[640px]:text-[0.32rem] max-[480px]:text-[0.24rem] max-[360px]:text-[0.19rem]"
+            style={{ transform: `scale(${asciiMetrics.scale})`, transformOrigin: "top left" }}
           >
             {asciiArt}
           </pre>
