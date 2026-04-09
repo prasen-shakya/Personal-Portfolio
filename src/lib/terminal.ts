@@ -52,6 +52,7 @@ export function getStatusText(activePage: PageKey, isCompact: boolean): string {
 export function getContactRows(contact: Contact): ContactRow[] {
   const rows: ContactRow[] = [
     { label: "Email", value: contact.email, href: `mailto:${contact.email}` },
+    { label: "Resume", value: contact.resume ? "View Resume" : "", href: contact.resume },
     { label: "GitHub", value: contact.github, href: contact.github },
     { label: "LinkedIn", value: contact.linkedin, href: contact.linkedin },
     { label: "Website", value: contact.website, href: contact.website },
