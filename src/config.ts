@@ -27,6 +27,16 @@ type RawConfig = {
     description?: string;
     tech?: string[];
     url?: string;
+    links?: Array<{
+      label?: string;
+      href?: string;
+    }>;
+    media?: Array<{
+      type?: string;
+      src?: string;
+      alt?: string;
+      caption?: string;
+    }>;
   }>;
   experiences?: Array<{
     company?: string;
@@ -41,6 +51,7 @@ type RawConfig = {
     linkedin?: string;
     website?: string;
     twitter?: string;
+    resume?: string;
   };
 };
 
@@ -59,6 +70,20 @@ export type Project = {
   description: string;
   tech: string[];
   url: string;
+  links: ProjectLink[];
+  media: ProjectMedia[];
+};
+
+export type ProjectLink = {
+  label: string;
+  href: string;
+};
+
+export type ProjectMedia = {
+  type: "image" | "video";
+  src: string;
+  alt: string;
+  caption: string;
 };
 
 export type Experience = {
@@ -75,6 +100,7 @@ export type Contact = {
   linkedin: string;
   website: string;
   twitter: string;
+  resume: string;
 };
 
 export type PortfolioConfig = {
@@ -134,6 +160,20 @@ function normalizeConfig(raw: RawConfig): PortfolioConfig {
         description: asText(project.description),
         tech: (project.tech ?? []).map(asText).filter(Boolean),
         url: asText(project.url),
+        links: (project.links ?? [])
+          .map((link) => ({
+            label: asText(link.label),
+            href: asText(link.href),
+          }))
+          .filter((link) => link.label.length > 0 && link.href.length > 0),
+        media: (project.media ?? [])
+          .map((item): ProjectMedia => ({
+            type: item.type === "video" ? "video" : "image",
+            src: asText(item.src),
+            alt: asText(item.alt),
+            caption: asText(item.caption),
+          }))
+          .filter((item) => item.src.length > 0),
       }))
       .filter((project) => project.name.length > 0),
     experiences: (raw.experiences ?? [])
@@ -151,6 +191,7 @@ function normalizeConfig(raw: RawConfig): PortfolioConfig {
       linkedin: asText(raw.contact?.linkedin),
       website: asText(raw.contact?.website),
       twitter: asText(raw.contact?.twitter),
+      resume: asText(raw.contact?.resume),
     },
   };
 }

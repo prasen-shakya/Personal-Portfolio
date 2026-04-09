@@ -46,8 +46,8 @@ export function usePortfolioController(
   };
 
   useEffect(() => {
-    document.title = `${config.name} | Portfolio`;
-  }, [config.name]);
+    document.title = `${config.name} | ${config.title}`;
+  }, [config.name, config.title]);
 
   useEffect(() => {
     setSelectedSkillCategory((current) => clampIndex(current, skillCount));
