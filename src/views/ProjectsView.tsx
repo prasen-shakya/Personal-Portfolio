@@ -32,7 +32,7 @@ export function ProjectsView({ onSelect, projects, selectedIndex }: ProjectsView
             <p className="mb-[0.85rem] mt-0 whitespace-pre-wrap text-terminal-text wrap-anywhere">{currentProject.description}</p>
             {currentProject.url ? (
               <a
-                className="mb-[0.85rem] block break-all text-terminal-text underline hover:text-terminal-blue"
+                className="mb-[0.85rem] block min-w-0 break-all text-terminal-text underline hover:text-terminal-blue"
                 href={currentProject.url}
                 target="_blank"
                 rel="noreferrer"

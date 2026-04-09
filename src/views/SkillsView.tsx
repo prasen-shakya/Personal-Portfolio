@@ -43,9 +43,9 @@ export function SkillsView({
                 item.level > 0 ? (
                   <div
                     key={item.name}
-                    className="flex flex-wrap items-baseline gap-x-[0.2rem] whitespace-pre-wrap text-terminal-green"
+                    className="flex flex-wrap items-baseline gap-x-[0.2rem] gap-y-[0.2rem] whitespace-pre-wrap text-terminal-green max-[640px]:items-start"
                   >
-                    <span className="inline-block w-[18ch] max-[640px]:w-full">
+                    <span className="inline-block w-[18ch] shrink-0 max-[640px]:w-full">
                       {item.name}
                     </span>
                     <span className="text-terminal-blue">

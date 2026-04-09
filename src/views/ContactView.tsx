@@ -13,13 +13,13 @@ export function ContactView({ rows }: ContactViewProps) {
           {rows.map((row) => (
             <a
               key={row.label}
-              className="grid items-start no-underline outline-none  focus-visible:outline-1 focus-visible:outline-terminal-blue focus-visible:outline-offset-1 grid-cols-[14ch_minmax(0,1fr)] max-[640px]:grid-cols-1 max-[640px]:gap-[0.2rem]"
+              className="grid min-w-0 items-start grid-cols-[14ch_minmax(0,1fr)] no-underline outline-none focus-visible:outline focus-visible:outline-1 focus-visible:outline-terminal-blue focus-visible:outline-offset-[-1px] max-[640px]:grid-cols-1 max-[640px]:gap-[0.2rem]"
               href={row.href}
               target={row.href.startsWith("mailto:") ? undefined : "_blank"}
               rel={row.href.startsWith("mailto:") ? undefined : "noreferrer"}
             >
               <span className="text-right font-bold text-terminal-mauve max-[640px]:text-left">{row.label}</span>
-              <span className="break-all pl-[2ch] text-terminal-text max-[640px]:pl-0 hover:text-terminal-blue">{row.value}</span>
+              <span className="min-w-0 break-all pl-[2ch] text-terminal-text hover:text-terminal-blue max-[640px]:pl-0">{row.value}</span>
             </a>
           ))}
         </div>

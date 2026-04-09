@@ -11,7 +11,7 @@ import { SkillsView } from "./views/SkillsView";
 function ErrorState({ error }: { error: string }) {
   return (
     <main className="min-h-screen min-h-dvh bg-terminal-mantle font-terminal text-base leading-[1.35] text-terminal-text max-[640px]:text-sm">
-      <section className="flex min-h-screen min-h-dvh flex-col justify-center bg-terminal-base p-8">
+      <section className="flex min-h-screen min-h-dvh flex-col justify-center bg-terminal-base p-8 max-[640px]:px-3 max-[640px]:py-5 max-[480px]:px-[0.6rem]">
         <pre className="whitespace-pre-wrap text-terminal-red">
           {`config.yaml could not be loaded\n\n${error}`}
         </pre>
@@ -77,7 +77,7 @@ function PortfolioApp({ config }: { config: PortfolioConfig }) {
     <main className="min-h-screen min-h-dvh bg-terminal-mantle font-terminal text-base leading-[1.35] text-terminal-text max-[640px]:text-sm">
       <section className="flex min-h-screen min-h-dvh flex-col bg-terminal-base">
         <TerminalTabs activePage={activePage} onSelect={setActivePage} />
-        <section className="min-h-0 flex-1 overflow-auto max-[480px]:overflow-x-hidden">
+        <section className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto">
           {content}
         </section>
         <footer className="min-h-[1.7rem] overflow-x-auto overflow-y-hidden whitespace-nowrap bg-terminal-mantle px-4 py-[0.2rem] text-terminal-overlay0 [scrollbar-width:none] [padding-bottom:calc(0.2rem+env(safe-area-inset-bottom))] [&::-webkit-scrollbar]:hidden max-[640px]:px-3">
