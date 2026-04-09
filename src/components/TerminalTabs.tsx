@@ -61,7 +61,7 @@ export function TerminalTabs({ activePage, onSelect }: TerminalTabsProps) {
             {pages.map((page) => {
               const isActive = page === activePage;
               const tabClassName = isActive
-                ? `${mobileTabClassName} bg-terminal-blue font-bold text-terminal-crust`
+                ? `${mobileTabClassName} bg-terminal-blue font-bold text-white`
                 : `${mobileTabClassName} text-terminal-text hover:bg-terminal-surface1/70 hover:text-terminal-rosewater`;
 
               return (
