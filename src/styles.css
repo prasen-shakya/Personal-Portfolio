@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --font-terminal: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+
+  --color-terminal-rosewater: #f5e0dc;
+  --color-terminal-flamingo: #f2cdcd;
+  --color-terminal-pink: #f5c2e7;
+  --color-terminal-mauve: #cba6f7;
+  --color-terminal-red: #f38ba8;
+  --color-terminal-maroon: #eba0ac;
+  --color-terminal-peach: #fab387;
+  --color-terminal-yellow: #f9e2af;
+  --color-terminal-green: #a6e3a1;
+  --color-terminal-teal: #94e2d5;
+  --color-terminal-sky: #89dceb;
+  --color-terminal-sapphire: #74c7ec;
+  --color-terminal-blue: #5a8fe5;
+  --color-terminal-lavender: #b4befe;
+  --color-terminal-text: #cdd6f4;
+  --color-terminal-subtext1: #bac2de;
+  --color-terminal-subtext0: #a6adc8;
+  --color-terminal-overlay2: #9399b2;
+  --color-terminal-overlay1: #7f849c;
+  --color-terminal-overlay0: #6c7086;
+  --color-terminal-surface2: #585b70;
+  --color-terminal-surface1: #45475a;
+  --color-terminal-surface0: #313244;
+  --color-terminal-base: #1e1e2e;
+  --color-terminal-mantle: #181825;
+  --color-terminal-crust: #11111b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-terminal-mantle);
+  color: var(--color-terminal-text);
+  -webkit-text-size-adjust: 100%;
+}
+
+button,
+a {
+  color: inherit;
+  font: inherit;
+}
+
+button {
+  appearance: none;
+}
+
+pre {
+  margin: 0;
+  font: inherit;
+}
