@@ -127,6 +127,11 @@ projects:
     description: "A full-stack scheduling app designed to simplify group planning by allowing users to create events, share links, collect availability, and quickly identify overlapping times."
     tech: ["React", "Vite", "Node.js", "Express", "SQL"]
     url: "https://github.com/prasen-shakya/Schedulify"
+    media:
+      - type: "image"
+        src: "/media/schedulify-demo.gif"
+        alt: "Schedulify scheduling flow demo"
+        caption: "Demo of creating an event and comparing availability in Schedulify."
 
   - name: "SRHS Badminton Website"
     description: "A multi-page website built for the Santa Rosa High School badminton team, providing schedules, team information, and contact resources for a real community audience."
