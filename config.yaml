@@ -143,7 +143,7 @@ projects:
     tech: ["HTML", "CSS", "JavaScript"]
     links:
       - label: "Home Page"
-        href: "https://prasen-shakya.github.io/home/"
+        href: "https://prasen-shakya.github.io/home"
     media:
       - type: "image"
         src: "/media/srhs-home.png"
