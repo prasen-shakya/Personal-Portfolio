@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 
 type TerminalListProps<T> = {
   activeTone?: "blue" | "mauve" | "peach";
@@ -61,7 +61,7 @@ export function TerminalList<T,>({
       <div className="relative">
         <div
           ref={scrollerRef}
-          className="flex flex-col max-[640px]:flex-row max-[640px]:items-center max-[640px]:gap-4 max-[640px]:overflow-x-auto max-[640px]:overflow-y-hidden max-[640px]:scroll-smooth max-[640px]:whitespace-nowrap max-[640px]:[scrollbar-width:none] max-[640px]:[&::-webkit-scrollbar]:hidden"
+          className="flex flex-col max-[640px]:flex-row max-[640px]:items-center max-[640px]:gap-2 max-[640px]:overflow-x-auto max-[640px]:overflow-y-hidden max-[640px]:scroll-smooth max-[640px]:whitespace-nowrap max-[640px]:[scrollbar-width:none] max-[640px]:[&::-webkit-scrollbar]:hidden"
         >
           {items.map((item, index) => {
             const isActive = index === selectedIndex;
@@ -80,24 +80,32 @@ export function TerminalList<T,>({
             }
 
             return (
-              <button
-                key={getKey(item, index)}
-                type="button"
-                className={buttonClassName}
-                onClick={() => onSelect(index)}
-                aria-pressed={isActive}
-              >
-                <span className={`${textClassName} max-[640px]:hidden`}>
-                  {isActive ? "  ▸ " : "    "}
-                  {getLabel(item)}
-                </span>
-                <span className={`hidden ${textClassName} max-[640px]:inline-flex max-[640px]:items-center max-[640px]:gap-2 max-[640px]:whitespace-nowrap`}>
-                  <span className="text-center opacity-80" aria-hidden="true">
-                    {isActive ? "▸" : "•"}
+              <Fragment key={getKey(item, index)}>
+                <button
+                  type="button"
+                  className={buttonClassName}
+                  onClick={() => onSelect(index)}
+                  aria-pressed={isActive}
+                >
+                  <span className={`${textClassName} max-[640px]:hidden`}>
+                    {isActive ? "  ▸ " : "    "}
+                    {getLabel(item)}
                   </span>
-                  <span>{getLabel(item)}</span>
-                </span>
-              </button>
+                  <span className={`hidden ${textClassName} max-[640px]:inline-flex max-[640px]:items-center max-[640px]:gap-1.5 max-[640px]:whitespace-nowrap`}>
+                    {isActive ? (
+                      <span className="text-center opacity-90" aria-hidden="true">
+                        ▸
+                      </span>
+                    ) : null}
+                    <span>{getLabel(item)}</span>
+                  </span>
+                </button>
+                {index < items.length - 1 ? (
+                  <span className="hidden text-terminal-surface1 max-[640px]:inline-block" aria-hidden="true">
+                    │
+                  </span>
+                ) : null}
+              </Fragment>
             );
           })}
         </div>
