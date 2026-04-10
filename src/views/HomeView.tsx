@@ -1,4 +1,5 @@
 import { useLayoutEffect, useRef, useState } from "react";
+import { useCompactViewport } from "../hooks/useCompactViewport";
 
 type HomeViewProps = {
   asciiArt: string;
@@ -12,14 +13,36 @@ type AsciiMetrics = {
   width: number;
 };
 
+const DESKTOP_NAVIGATION_COPY = "Navigate with arrow keys and learn more about me!";
+const MOBILE_NAVIGATION_COPY =
+  "Tap through the sections below to explore more about me.";
+const MOBILE_DESKTOP_HINT =
+  "For the full terminal-style experience, this site is even better on desktop.";
+
+function getResponsiveIntro(intro: string, isCompact: boolean): string {
+  if (!isCompact) {
+    return intro;
+  }
+
+  const mobileCopy = `${MOBILE_NAVIGATION_COPY}\n\n${MOBILE_DESKTOP_HINT}`;
+
+  if (intro.includes(DESKTOP_NAVIGATION_COPY)) {
+    return intro.replace(DESKTOP_NAVIGATION_COPY, mobileCopy);
+  }
+
+  return `${intro.trimEnd()}\n\n${mobileCopy}`;
+}
+
 export function HomeView({ asciiArt, intro, title }: HomeViewProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const artRef = useRef<HTMLPreElement>(null);
+  const isCompact = useCompactViewport();
   const [asciiMetrics, setAsciiMetrics] = useState<AsciiMetrics>({
     height: 0,
     scale: 1,
     width: 0,
   });
+  const responsiveIntro = getResponsiveIntro(intro, isCompact);
 
   useLayoutEffect(() => {
     const container = containerRef.current;
@@ -85,7 +108,7 @@ export function HomeView({ asciiArt, intro, title }: HomeViewProps) {
           </div>
         </div>
         <h1 className="m-0 text-[clamp(1rem,1.6vw,1.4rem)] font-bold text-terminal-blue max-[640px]:pt-1">{title}</h1>
-        <pre className="m-0 max-w-[74ch] whitespace-pre-wrap text-terminal-subtext0 wrap-anywhere max-[640px]:w-full max-[640px]:text-left">{intro}</pre>
+        <pre className="m-0 max-w-[74ch] whitespace-pre-wrap text-terminal-subtext0 wrap-anywhere max-[640px]:w-full max-[640px]:text-left">{responsiveIntro}</pre>
       </div>
     </section>
   );
