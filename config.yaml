@@ -112,6 +112,11 @@ projects:
     description: "Implemented and deployed an open-source AI-based PDF remediation tool into Sonoma State University’s AWS environment. Redesigned the UI to match SSU branding, integrated SSO authentication, removed upload limits, and enabled multi-file processing to improve accessibility compliance across campus systems."
     tech: ["AWS", "React", "Accessibility", "AI", "SSO"]
     url: ""
+    media:
+      - type: "image"
+        src: "/media/pdf-accessibility-home.png"
+        alt: "AI PDF Accessibility website"
+        caption: "Home page of the AI PDF Accessibility tool."
 
   - name: "Drupal to Halo ETL Migration (SSU)"
     description: "Built an ETL pipeline to migrate Sonoma State University's FAQ knowledge base from Drupal to Halo ITSM. Extracted data via Drupal’s JSON API, transformed HTML into structured formats, and loaded it into Halo through its API—automating a previously manual and time-consuming process."
@@ -130,13 +135,20 @@ projects:
     media:
       - type: "image"
         src: "/media/schedulify-demo.gif"
-        alt: "Schedulify scheduling flow demo"
-        caption: "Demo of creating an event and comparing availability in Schedulify."
+        alt: "Schedulify website demo"
+        caption: "Demo of Schedulify."
 
   - name: "SRHS Badminton Website"
     description: "A multi-page website built for the Santa Rosa High School badminton team, providing schedules, team information, and contact resources for a real community audience."
     tech: ["HTML", "CSS", "JavaScript"]
-    url: "https://github.com/prasen-shakya/SRHS-Badminton-Website"
+    links:
+      - label: "Home Page"
+        href: "https://prasen-shakya.github.io/home/"
+    media:
+      - type: "image"
+        src: "/media/srhs-home.png"
+        alt: "SRHS Badminton website screenshot"
+        caption: "Screenshot of the SRHS Badminton website."
 
   - name: "Tiny Swords"
     description: "A small game development project built in Godot that explores player movement, combat systems, and interactive gameplay mechanics."
@@ -147,5 +159,4 @@ contact:
   email: "prasen1265@gmail.com"
   github: "https://github.com/prasen-shakya"
   linkedin: "https://www.linkedin.com/in/shakya-prasen/"
-  website: ""
-  twitter: ""
+  resume: "Prasen Shakya Resume.pdf"
