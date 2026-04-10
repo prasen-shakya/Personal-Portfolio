@@ -106,7 +106,9 @@ projects:
   - name: "DragonCrawl Debug Dashboard (Uber)"
     description: "Enhanced Uber’s internal DragonCrawl platform by building a full-stack dashboard to visualize and filter logs. Transformed raw log output into a usable interface, significantly improving debugging efficiency and reducing time spent identifying issues."
     tech: ["React", "Golang", "Python", "Full Stack", "Testing"]
-    url: "https://www.uber.com/us/en/blog/generative-ai-for-high-quality-mobile-testing/"
+    links:
+      - label: "Learn More"
+        href: "https://www.uber.com/us/en/blog/generative-ai-for-high-quality-mobile-testing/"
 
   - name: "AI PDF Accessibility (SSU)"
     description: "Implemented and deployed an open-source AI-based PDF remediation tool into Sonoma State University’s AWS environment. Redesigned the UI to match SSU branding, integrated SSO authentication, removed upload limits, and enabled multi-file processing to improve accessibility compliance across campus systems."
