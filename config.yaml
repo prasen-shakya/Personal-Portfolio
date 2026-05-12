@@ -155,7 +155,16 @@ projects:
   - name: "Tiny Swords"
     description: "A small game development project built in Godot that explores player movement, combat systems, and interactive gameplay mechanics."
     tech: ["Godot", "GDScript", "Game Development"]
-    url: "https://github.com/prasen-shakya/Tiny-Swords"
+    links:
+      - label: "Github Repo"
+        href: "https://github.com/prasen-shakya/Tiny-Swords"
+      - label: "Play It Online"
+        href: "https://prasen-shakya.itch.io/tiny-swords"
+    media:
+      - type: "image"
+        src: "/media/tiny-swords.png"
+        alt: "Tiny Swords Main Menu"
+        caption: "Screenshot of the main menu."
 
 contact:
   email: "prasen1265@gmail.com"
